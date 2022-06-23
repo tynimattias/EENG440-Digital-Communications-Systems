@@ -35,7 +35,7 @@ plt.grid(True)
 plt.setp(baseline, visible=False)
 plt.title('Message signal, m(t) and m[n]'); plt.xlabel('t [sec]')
 plt.legend(('m(t)','m[n]'))
-
+plt.tight_layout()
 plt.savefig('Figure 1')
 plt.show()
 #_______________________________________________________________________Part 2
@@ -59,9 +59,11 @@ U_FM = Ac*np.cos((2*np.pi*fc*t)+(phi_t))
 plt.figure(2)
 plt.subplot(211)
 plt.plot(t, U_FM)
+plt.tight_layout()
 
 plt.subplot(212)
 DrawSpectrum(U_FM, Fs, 'b')
+plt.tight_layout()
 
 plt.show()
 
@@ -96,13 +98,17 @@ plt.figure(3)
 plt.subplot(311)
 plt.plot(t, mt)
 plt.plot(t, recovered)
+plt.tight_layout()
 
 plt.subplot(312)
 DrawSpectrum(recovered, Fs, 'r--')
 DrawSpectrum(mt,Fs, 'b--')
+plt.tight_layout()
+
 
 plt.subplot(313)
 DrawSpectrum(xlt, Fs, 'g')
+plt.tight_layout()
 plt.show()
 
 #_________________________________________________________________________________________Part 4
@@ -123,6 +129,8 @@ plt.plot(t, recovered_message)
 
 plt.subplot(212)
 DrawSpectrum(recovered_message, Fs, 'r--')
+DrawSpectrum(B*180, Fs, 'k')
 DrawSpectrum(mt, Fs, 'b--')
 
+plt.tight_layout()
 plt.show()
